@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Hello World!</h1>
+<p>Welcome to my first Django project!</p>
+<p>you don't have account <a href="/signup/">sign up</a> first </p>
+{% for message in messages %}
+    <p id="messages"> {{message}} </p>
+{% endfor %}
+<form method="POST">
+    {% csrf_token %}
+    <br>
+    <input type="text" name="username" placeholder="username">
+    <br>
+    <input type="password" name="password" placeholder="password">
+    <br>
+    <input type="submit" value="log in">
+    
+</form>
+
+</body>
+</html>

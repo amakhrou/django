@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>user profile page</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <br>
+        <br>
+        <input type="submit" value="update">
+        <!-- <p>back to <a href="/first"> log in</a></p> -->
+    </form>
+</body>
+</html>

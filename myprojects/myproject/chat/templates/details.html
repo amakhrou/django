@@ -1,0 +1,29 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Details about {{ mychat.firstname }} {{ mychat.lastname }}
+{% endblock %}
+
+{% block content %}
+  <div class="mycard">
+    <h1>{{ mychat.firstname }} {{ mychat.lastname }}</h1>
+    <p>Phone {{ mychat.phone }}</p>
+    <p>Chat since: {{ mychat.joined_date }}</p>
+    <span><a href="/logout/">log out</a></span>
+  </div>
+{% endblock %} 
+
+<!-- <!DOCTYPE html>
+<html>
+
+<body>
+
+<h1>{{ mychat.firstname }} {{ mychat.lastname }}</h1>
+  
+<p>Phone: {{ mychat.phone }}</p>
+<p>Member since: {{ mychat.joined_date }}</p>
+
+<p>Back to <a href="/chat">Chat</a></p>
+
+</body>
+</html> -->

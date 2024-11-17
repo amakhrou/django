@@ -1,0 +1,38 @@
+{% extends "master.html" %}
+
+{% block title %}
+  My Tennis Club - List of all chat
+{% endblock %}
+
+
+{% block content %}
+  <div class="mycard">
+    
+    <h1>Chat</h1>
+    <ul>
+      {% for x in mychat %}
+        <li onclick="window.location = 'details/{{ x.slug }}'">{{ x.firstname }} {{ x.lastname }}</li>
+      {% endfor %}
+    </ul>
+    <br>
+    <span><a href="/logout/">log out</a></span>
+  </div>
+  
+{% endblock %}
+
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<h1>Chat</h1>
+  
+<ul>
+  {% for x in mychat %}
+  <li><a href="details/{{ x.id }}">{{ x.firstname }} {{ x.lastname }}</a></li>
+  {% endfor %}
+</ul>
+
+</body>
+</html> -->
+
+
