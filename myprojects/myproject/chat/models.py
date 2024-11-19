@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Chat(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-    # user_mail = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    user_mail = models.CharField(max_length=255,null=True)
     firstname = models.CharField(max_length=255)
     lastname = models.CharField(max_length=255)
     phone = models.IntegerField(null=True)

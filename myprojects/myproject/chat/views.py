@@ -89,8 +89,10 @@ def signup(request):
         username = form.cleaned_data.get('username')
         Chat.objects.create(
           user=user,
-          slug=user,
-          firstname=user,
+          user_mail=user.email,
+          firstname=user.first_name,
+          lastname=user.last_name,
+          slug=user
         )
         messages.success(request, 'Account Created ' + username)
         return redirect('first')

@@ -15,5 +15,7 @@ class UserProfileForm(ModelForm):
 
 class CreatUserForm(UserCreationForm):
     class Meta:
+        first_name = forms.CharField(max_length=30, required=True)
+        last_name = forms.CharField(max_length=30, required=True)
         model = User
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['username', 'first_name','last_name', 'email', 'password1', 'password2']

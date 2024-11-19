@@ -5,8 +5,9 @@ from django.db.models.signals import post_save
 class user_profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     # friend = models.ManyToManyField("self", symmetrical=True, blank=True)
-    firstname = models.CharField(max_length=30,default="")
-    lastname = models.CharField(max_length=30,null=True, blank=True)
+    # firstname = models.CharField(max_length=30,default="")
+    # lastname = models.CharField(max_length=30,null=True, blank=True)
+    # email = models.CharField(max_length=255,null=True, blank=True)
     def __str__(self):
         return self.user.username
 
