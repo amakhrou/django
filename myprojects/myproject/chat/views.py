@@ -33,6 +33,10 @@ def userProfile(request):
   user = request.user.chat
   form = UserProfileForm(instance=user)
   template = loader.get_template('userprofile.html')
+  if request.method == 'POST':
+    form = UserProfileForm(request.POST, instance=user)
+    if form.is_valid():
+      form.save()
   context = {
     'form':form
   } 
@@ -85,6 +89,7 @@ def signup(request):
     if request.method == 'POST':
       form = CreatUserForm(request.POST)
       if form.is_valid():
+        print('gg')
         user = form.save()
         username = form.cleaned_data.get('username')
         Chat.objects.create(
@@ -92,7 +97,8 @@ def signup(request):
           user_mail=user.email,
           firstname=user.first_name,
           lastname=user.last_name,
-          slug=user
+          slug=user,
+          display_name=user
         )
         messages.success(request, 'Account Created ' + username)
         return redirect('first')
