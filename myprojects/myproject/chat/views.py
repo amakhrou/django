@@ -34,7 +34,7 @@ def userProfile(request):
   form = UserProfileForm(instance=user)
   template = loader.get_template('userprofile.html')
   if request.method == 'POST':
-    form = UserProfileForm(request.POST, instance=user)
+    form = UserProfileForm(request.POST, request.FILES, instance=user)
     if form.is_valid():
       form.save()
   context = {

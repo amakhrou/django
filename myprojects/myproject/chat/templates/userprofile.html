@@ -6,6 +6,7 @@
         {% csrf_token %}
         {{form.as_p}}
         <br>
+        <img src="{{ request.user.chat.profile_pic.url }}" >
         <br>
         <input type="submit" value="save settings">
         <!-- <p>back to <a href="/first"> log in</a></p> -->

@@ -9,7 +9,7 @@ class Chat(models.Model):
     firstname = models.CharField(max_length=255)
     lastname = models.CharField(max_length=255)
     phone = models.IntegerField(null=True)
-    profile_pic = models.ImageField(null=True, blank=True)
+    profile_pic = models.ImageField(null=True, blank=True, upload_to="images/")
     joined_date = models.DateField(auto_now_add=True, null=True)
     slug = models.SlugField(default="", null=False)
 

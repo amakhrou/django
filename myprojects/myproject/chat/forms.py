@@ -11,7 +11,7 @@ class UserProfileForm(ModelForm):
     class Meta:
         model = Chat
         fields = '__all__'
-        exclude = ['user', 'slug', 'user_mail', 'joined_date', 'phone', 'profile_pic']
+        exclude = ['user', 'slug', 'user_mail', 'joined_date', 'phone']
 
 class CreatUserForm(UserCreationForm):
     class Meta:
