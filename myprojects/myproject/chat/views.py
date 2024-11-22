@@ -32,15 +32,18 @@ def details(request, slug):
 def userProfile(request):
   user = request.user.chat
   form = UserProfileForm(instance=user)
-  template = loader.get_template('userprofile.html')
+  template = loader.get_template('userprofilesettings.html')
   if request.method == 'POST':
-    form = UserProfileForm(request.POST, request.FILES, instance=user)
+    form = UserProfileForm(request.POST or None, request.FILES or None, instance=user)
     if form.is_valid():
       form.save()
   context = {
     'form':form
   } 
-  # form.save()
+  return HttpResponse(template.render(context, request))
+def profile_page(request):
+  template = loader.get_template('profile.html')
+  context = {}
   return HttpResponse(template.render(context, request))
 
 # @login_required(login_url='first')
@@ -89,7 +92,6 @@ def signup(request):
     if request.method == 'POST':
       form = CreatUserForm(request.POST)
       if form.is_valid():
-        print('gg')
         user = form.save()
         username = form.cleaned_data.get('username')
         Chat.objects.create(

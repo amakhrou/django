@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Profile Page</title>
+</head>
+<body>
+    <h1>User Profile</h1>
+    <div>
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <p><strong>Email:</strong> {{ user.chat.user_mail }}</p>
+        <p><strong>Display Name:</strong> {{ user.chat.display_name }}</p>
+        <p><strong>First Name:</strong> {{ user.chat.firstname }}</p>
+        <p><strong>Last Name:</strong> {{ user.chat.lastname }}</p>
+        <p><strong>Phone:</strong> {{ user.chat.phone }}</p>
+        <p><strong>Joined Date:</strong> {{ user.chat.joined_date }}</p>
+        {% if user.chat.profile_pic %}
+            <img src="{{ user.chat.profile_pic.url }}" alt="Profile Picture" style="width:150px; height:150px;">
+        {% else %}
+            <p>No profile picture uploaded.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

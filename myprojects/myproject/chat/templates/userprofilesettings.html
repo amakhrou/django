@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>user profile page settings</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <br>
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Email:</strong> {{ user.chat.user_mail }}</p>
+            <p><strong>Joined Date:</strong> {{ user.chat.joined_date }}</p>
+        <br>
+        {% if request.user.chat.profile_pic %}
+        <img src="{{ request.user.chat.profile_pic.url }}" >
+        {% endif %}
+        <br>
+        <input type="submit" value="save settings">
+        <!-- <p>back to <a href="/first"> log in</a></p> -->
+    </form>
+</body>
+</html>
