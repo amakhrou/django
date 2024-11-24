@@ -37,10 +37,13 @@ def userProfile(request):
     form = UserProfileForm(request.POST or None, request.FILES or None, instance=user)
     if form.is_valid():
       form.save()
+      return redirect('profile')
   context = {
     'form':form
   } 
   return HttpResponse(template.render(context, request))
+
+@login_required(login_url='first')
 def profile_page(request):
   template = loader.get_template('profile.html')
   context = {}

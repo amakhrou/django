@@ -9,6 +9,12 @@
     <h1>{{ mychat.firstname }} {{ mychat.lastname }}</h1>
     <p>Phone {{ mychat.phone }}</p>
     <p>Chat since: {{ mychat.joined_date }}</p>
+    <p>Display name: {{ mychat.display_name }}</p>
+    {% if mychat.profile_pic %}
+        <img src="{{ mychat.profile_pic.url }}" alt="Profile Picture" style="width:150px; height:150px;">
+    {% else %}
+        <p>No profile picture uploaded.</p>
+    {% endif %}
     <span><a href="/logout/">log out</a></span>
   <!-- </div> -->
 <!-- {% endblock %}  -->
